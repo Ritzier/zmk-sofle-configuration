@@ -10,6 +10,6 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
     with:
-      config-path: dongle/config
-      build-matrix-path: dongle/build.yaml
+      config_path: dongle/config
+      build_matrix_path: dongle/build.yaml
       archive-name: firmware-dongle
