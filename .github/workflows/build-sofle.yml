@@ -1,0 +1,15 @@
+name: Build ZMK Sofle (Direct)
+on:
+  push:
+    paths:
+      - "config/eyelash_sofle.keymap"
+      - "sofle/**"
+    branches: ["main"]
+  workflow_dispatch:
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
+    with:
+      config-path: sofle/config
+      build-matrix-path: sofle/build.yaml
+      archive-name: firmware-sofle

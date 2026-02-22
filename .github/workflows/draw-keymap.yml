@@ -1,0 +1,39 @@
+name: Draw Keymap
+on:
+  push:
+    paths:
+      - "config/eyelash_sofle.keymap"
+      - "keymap-drawer/**"
+    branches: ["main"]
+  workflow_dispatch:
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install keymap-drawer
+        run: pip install keymap-drawer
+      - name: Parse keymap
+        run: |
+          keymap -c keymap-drawer/keymap_drawer.config.yaml parse \
+            -z config/eyelash_sofle.keymap \
+            > keymap-drawer/eyelash_sofle.yaml
+      - name: Draw SVG
+        run: |
+          keymap -c keymap-drawer/keymap_drawer.config.yaml draw \
+            keymap-drawer/eyelash_sofle.yaml \
+            > keymap-drawer/eyelash_sofle.svg
+      - name: Commit updated SVG
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "ci: regenerate keymap SVG"
+          file_pattern: |
+            keymap-drawer/eyelash_sofle.svg
+            keymap-drawer/eyelash_sofle.yaml
