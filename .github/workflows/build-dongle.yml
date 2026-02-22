@@ -12,4 +12,4 @@ jobs:
     with:
       config_path: dongle/config
       build_matrix_path: dongle/build.yaml
-      archive-name: firmware-dongle
+      archive_name: firmware-dongle

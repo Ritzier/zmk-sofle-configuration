@@ -12,4 +12,4 @@ jobs:
     with:
       config_path: sofle/config
       build_matrix_path: sofle/build.yaml
-      archive-name: firmware-sofle
+      archive_name: firmware-sofle
