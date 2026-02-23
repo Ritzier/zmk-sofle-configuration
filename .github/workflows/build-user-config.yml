@@ -70,7 +70,9 @@ jobs:
           artifact_name: ${{ matrix.artifact-name }}
           snippet: ${{ matrix.snippet }}
         run: |
-          if [ -e "${{ inputs.config_path }}/zephyr/module.yml" ] || [ -e "zephyr/module.yml" ]; then
+          # config_path is e.g. "sofle/config" → parent is "sofle"
+          config_parent=$(dirname "${{ inputs.config_path }}")
+          if [ -e "${config_parent}/zephyr/module.yml" ] || [ -e "zephyr/module.yml" ]; then
             export zmk_load_arg=" -DZMK_EXTRA_MODULES='${GITHUB_WORKSPACE}'"
             new_tmp_dir="${TMPDIR:-/tmp}/zmk-config"
             mkdir -p "${new_tmp_dir}"
