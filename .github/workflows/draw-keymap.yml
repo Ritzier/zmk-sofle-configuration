@@ -3,7 +3,7 @@ name: Draw Keymap
 on:
   push:
     paths:
-      - "config/eyelash_sofle.keymap"
+      - "config/keys.keymap"
       - "keymap-drawer/**"
     branches: ["main"]
   workflow_dispatch:
