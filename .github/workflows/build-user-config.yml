@@ -99,8 +99,17 @@ jobs:
       - name: West Init
         working-directory: ${{ env.base_dir }}
         run: |
+          set -ex
+          echo "=== base_dir contents ==="
+          ls -la "${{ env.base_dir }}/"
+          echo "=== config_path contents ==="
+          ls -la "${{ env.base_dir }}/${{ inputs.config_path }}/" || echo "CONFIG PATH MISSING"
+          echo "=== west.yml check ==="
+          cat "${{ env.base_dir }}/${{ inputs.config_path }}/west.yml" || echo "west.yml MISSING"
           rm -rf "${{ env.base_dir }}/.west"
           west init -l "${{ env.base_dir }}/${{ inputs.config_path }}"
+          echo "=== .west contents after init ==="
+          cat "${{ env.base_dir }}/.west/config"
 
       - name: West Update
         working-directory: ${{ env.base_dir }}
