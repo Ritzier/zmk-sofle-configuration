@@ -6,4 +6,4 @@
 #include <input/processors.dtsi>
 
 // Include the shared keymap — this provides the full keymap{} block
-#include "../../../config/eyelash_sofle.keymap"
+#include "keys.keymap"
