@@ -32,7 +32,7 @@ jobs:
       - name: Parse keymap
         run: |
           keymap -c keymap-drawer/keymap_drawer.config.yaml parse \
-            -z config/eyelash_sofle.keymap \
+            -z config/keys.keymap \
             > keymap-drawer/eyelash_sofle.yaml
 
       - name: Draw SVG
