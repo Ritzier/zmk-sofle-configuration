@@ -1,4 +1,5 @@
 name: Build ZMK Sofle (Direct)
+
 on:
   push:
     paths:
@@ -6,9 +7,10 @@ on:
       - "sofle/**"
     branches: ["main"]
   workflow_dispatch:
+
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: ./.github/workflows/build-user-config.yml
     with:
       config_path: sofle/config
       build_matrix_path: sofle/build.yaml
