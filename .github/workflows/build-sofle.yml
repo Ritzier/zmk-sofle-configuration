@@ -3,7 +3,7 @@ name: Build ZMK Sofle (Direct)
 on:
   push:
     paths:
-      - "config/eyelash_sofle.keymap"
+      - "config/keys.keymap"
       - "sofle/**"
     branches: ["main"]
   workflow_dispatch:

@@ -2,7 +2,7 @@ name: Build ZMK Sofle (Dongle)
 on:
   push:
     paths:
-      - "config/eyelash_sofle.keymap"
+      - "config/keys.keymap"
       - "dongle/**"
     branches: ["main"]
   workflow_dispatch:
