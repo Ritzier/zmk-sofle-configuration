@@ -73,7 +73,7 @@ jobs:
           # config_path is e.g. "sofle/config" → parent is "sofle"
            config_parent=$(dirname "${{ inputs.config_path }}")
           if [ -e "${config_parent}/zephyr/module.yml" ] || [ -e "zephyr/module.yml" ]; then
-            export zmk_load_arg=" -DZMK_EXTRA_MODULES='${GITHUB_WORKSPACE}'"
+            export zmk_load_arg=" -DZMK_EXTRA_MODULES='${GITHUB_WORKSPACE}/${config_parent}'"
             new_tmp_dir="${TMPDIR:-/tmp}/zmk-config/${config_parent}"
             mkdir -p "${new_tmp_dir}"
             echo "base_dir=${new_tmp_dir}" >> $GITHUB_ENV
