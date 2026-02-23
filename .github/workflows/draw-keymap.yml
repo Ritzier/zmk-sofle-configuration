@@ -38,6 +38,7 @@ jobs:
       - name: Draw SVG
         run: |
           keymap -c keymap-drawer/keymap_drawer.config.yaml draw \
+            -d dongle/boards/shields/eyelash_sofle/eyelash_sofle-layouts.dtsi \
             keymap-drawer/eyelash_sofle.yaml \
             > keymap-drawer/eyelash_sofle.svg
 
