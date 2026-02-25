@@ -95,6 +95,7 @@ jobs:
             mkdir -p "${{ env.base_dir }}/config"
             cp -R ${{ inputs.config_path }}/* "${{ env.base_dir }}/config/"
           fi
+          cp "${GITHUB_WORKSPACE}/config/keys.keymap" "${{ env.base_dir }}/config/eyelash_sofle.keymap"
 
       - name: West Init
         working-directory: ${{ env.base_dir }}
