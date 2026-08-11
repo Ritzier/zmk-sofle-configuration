@@ -15,14 +15,14 @@
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
-    acceleration-exponent = <1>;      // 0
+    acceleration-exponent = <0>;      // 0
     time-to-max-speed-ms = <100>;       // 300
     delay-ms = <0>;                   // 0
 };
 
 &mmv {
     time-to-max-speed-ms = <500>;
-    acceleration-exponent = <1>;
+    acceleration-exponent = <0>;
     trigger-period-ms = <16>;
 };
 
@@ -111,7 +111,7 @@
         layer_3 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &trans          &trans          &trans          &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &trans          &trans          &trans          &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &msc SCRL_DOWN  &msc SCRL_UP    &trans          &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &mmv MOVE_LEFT    &mmv MOVE_DOWN  &mmv MOVE_UP    &mmv MOVE_RIGHT &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &trans          &trans          &trans          &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &mkp LCLK       &mkp RCLK       &trans          &trans
